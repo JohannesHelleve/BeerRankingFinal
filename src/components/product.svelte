@@ -3,7 +3,7 @@
     export let vendors: { store: string; price: number; }[];
 </script>
 
-<div class=" flex flex-col pb-4">
+<div class="flex flex-col p-5">
     <h1 class="bg-red-600">{name}</h1>
     <ul>
         {#each vendors as vendor}
