@@ -1,25 +1,19 @@
 <script lang="ts">
-	import ProductList from '../components/productList.svelte';
-	import Header from '../components/header.svelte';
-	import Searchbar from '../components/searchBar.svelte';
+	import ProductList from '../lib/components/productList.svelte';
+	import Header from '../lib/components/header.svelte';
+	import SearchBar from '../lib/components/searchBar.svelte';
+	import { handleFileter, search } from '../store';
 	import type { PageData } from './$types';
-	import { createSearchStore, searchHandler } from '../store';
-	import { onDestroy } from 'svelte';
+
 	export let data: PageData;
-	const {products} = data;
+	$: ({products} = data);
 
-	const searchStore = createSearchStore({products}.products);
-
-	const unsubscribed = searchStore.subscribe((model) => searchHandler(model));
-	 
-	onDestroy(() => {
-		unsubscribed();
-	}); 
+	$: filteredItems = handleFileter({products}.products, $search);
 </script>
 
 <section>
 	<Header/>
-	<Searchbar/>
-	<ProductList products={$searchStore.filtered}/>
+	<SearchBar/>
+	<ProductList products={filteredItems}/>
 </section>
 
