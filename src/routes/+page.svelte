@@ -4,7 +4,6 @@
 	import SearchBar from '../lib/components/searchBar.svelte';
 	import { handleFileter, search } from '../store';
 	import type { PageData } from './$types';
-
 	export let data: PageData;
 	$: ({products} = data);
 
