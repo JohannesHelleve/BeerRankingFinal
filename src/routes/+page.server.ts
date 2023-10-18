@@ -25,8 +25,16 @@ async function getProduct(ean: string) {
 async function updateProduct(product) {
     try{
         const collection = products; 
-        await collection.insertOne(product)
-        
+        const filter = { ean: product.data.ean };
+        console.log(product.data.ean)
+        const test = await collection.findOne(filter).catch(err => console.log(err))
+        console.log(test)
+        //await collection.findOneAndReplace(filter, product, { upsert: true });
+        return {
+            status: 200,
+            body: test
+        }
+
     } catch (error) {
         return {
             status: 500,
