@@ -18,18 +18,39 @@ async function getProduct(ean: string) {
             Authorization: `Bearer ${KASSAL_BEARER_TOKEN}`
         }
     })
-    return response.json()
+    return prettifyProduct(response);
+}
+
+async function prettifyProduct(response){
+    const responseJSON = await response.json();
+    const stores = []
+
+    for (const store of responseJSON.data.products) {
+        if (store.store == null || store.current_price == null){
+            continue
+        }
+        
+        stores.push({
+            storeName : store.store.name,
+            storePrice : store.current_price.price,
+        })
+    }
+
+    const prettyProduct = {
+        ean : responseJSON.data.ean,
+        productName : responseJSON.data.products[0].name,
+        stores : stores
+    }
+    console.log(prettyProduct)
+    return prettyProduct;
 }
 
 
 async function updateProduct(product) {
     try{
         const collection = products; 
-        const filter = { ean: product.data.ean };
-        console.log(product.data.ean)
-        const test = await collection.findOne(filter).catch(err => console.log(err))
-        console.log(test)
-        //await collection.findOneAndReplace(filter, product, { upsert: true });
+        const filter = { ean: product.ean };
+        await collection.findOneAndReplace(filter, product, { upsert: true });
         return {
             status: 200,
             body: test
