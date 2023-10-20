@@ -18,7 +18,11 @@ const eanList = [
     {
       name: "Frydenlund Fatøl 0.33",
       ean: "7044610241289"
-    }  
+    },  
+    {
+      name: "Schous Pilsner 6 x 0,5l, 3 l",
+      ean: "7044611875995"
+    }
   ]
 
 export default eanList

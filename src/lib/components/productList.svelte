@@ -14,7 +14,7 @@
 	<section class="flex flex-wrap">
 		{#each products as product}
 			<article>
-				<Product name={product.productName}/>
+				<Product product={product}/>
 			</article>
 		{/each}	
 	</section>
