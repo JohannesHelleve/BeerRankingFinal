@@ -3,16 +3,16 @@
 	import Header from '../lib/components/header.svelte';
 	import SearchBar from '../lib/components/searchBar.svelte';
 	import { handleFileter, search } from '../store';
+
+
 	import type { PageData } from './$types';
 	export let data: PageData;
-	$: ({products} = data);
-
-	$: filteredItems = handleFileter({products}.products, $search);
+	$: filteredItems = handleFileter(data.products, $search);
 </script>
 
 <section>
 	<Header/>
 	<SearchBar/>
-	<ProductList products={filteredItems}/>
+	<ProductList products={filteredItems} />
 </section>
 

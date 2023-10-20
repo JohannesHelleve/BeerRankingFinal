@@ -41,7 +41,6 @@ async function prettifyProduct(response){
         productName : responseJSON.data.products[0].name,
         stores : stores
     }
-    console.log(prettyProduct)
     return prettyProduct;
 }
 
@@ -53,7 +52,6 @@ async function updateProduct(product) {
         await collection.findOneAndReplace(filter, product, { upsert: true });
         return {
             status: 200,
-            body: test
         }
 
     } catch (error) {
@@ -66,10 +64,10 @@ async function updateProduct(product) {
 
 
 export const load: PageServerLoad = async function() {
-    let data = await products.find({}).toArray();
-    const db = await updateDB();
+    const data = await products.find({}).toArray();
+    const productsWithoutId = data.map(({ _id, ...rest }) => rest);
+    await updateDB();
     return {
-        products: data
-    }
+        products: productsWithoutId
+    };
 }
-

@@ -5,15 +5,18 @@ export const search = writable("");
 
 export const handleFileter = (products: Products, search: string) => {
     return products.filter((product) => {
-        return product.name.toLowerCase().includes(search.toLowerCase());
+        return product.productName.toLowerCase().includes(search.toLowerCase());
     });
 };
 
 
 
-export type Products = 
-    { name: string; 
-      list: 
-            { store: string; price: number; }[] 
+export type Products = {
+    ean: string;
+    productName: string; // Change the type to the actual type of productName
+    stores: {
+        storeName: string;
+        storePrice: number; // Change the type to the actual type of storePrice
     }[];
+}[];
 
