@@ -10,7 +10,7 @@
 	$: filteredItems = handleFileter(data.products, $search);
 </script>
 
-<section>
+<section class="bg-palett-Lighblue">
 	<Header/>
 	<SearchBar/>
 	<ProductList products={filteredItems} />

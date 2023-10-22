@@ -9,11 +9,11 @@
 };
 </script>
 
-<div class="flex flex-col p-5">
-    <h1 class="bg-red-600">{product.productName}</h1>
-    <ul>
+<div class="flex flex-col m-3 py-2 px-3 border-4 border-black rounded-lg w-80 h-48 ">
+    <h1 class="text-xl">{product.productName}</h1>
+    <ul class="pt-2">
         {#each product.stores as store}
-            <li class="bg-blue-600">{store.storeName} - {store.storePrice}</li>
+            <li class="text-sm">{store.storeName} - {store.storePrice}</li>
         {/each}
     </ul>
 </div>

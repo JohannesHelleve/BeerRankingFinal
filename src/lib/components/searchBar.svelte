@@ -4,6 +4,5 @@
 </script>
 
 <div class="flex justify-center">   
-    <label for="søk">Søk her</label>
-    <input id="søk" type="text" class="border-4" bind:value={$search}>
+    <input id="søk" placeholder="Søk her!" type="text" class="mb-5 rounded-md  border-2 w-60 shadow-lg"  bind:value={$search}>
 </div>
