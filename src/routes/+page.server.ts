@@ -36,6 +36,8 @@ async function prettifyProduct(response){
         })
     }
 
+    stores.sort((a, b) => (a.storePrice > b.storePrice) ? 1 : -1)
+
     const prettyProduct = {
         ean : responseJSON.data.ean,
         productName : responseJSON.data.products[0].name,
