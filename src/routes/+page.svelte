@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Footer from '$lib/components/footer.svelte';
 	import ProductList from '../lib/components/productList.svelte';
 	import Header from '../lib/components/header.svelte';
 	import SearchBar from '../lib/components/searchBar.svelte';
@@ -10,9 +11,12 @@
 	$: filteredItems = handleFileter(data.products, $search);
 </script>
 
-<section class="bg-palett-Lighblue">
-	<Header/>
-	<SearchBar/>
-	<ProductList products={filteredItems} />
-</section>
+<div class="h-screen bg-palett-Lighblue">
+	<section class="bg-palett-Lighblue">
+		<Header/>
+		<SearchBar/>
+		<ProductList products={filteredItems}/>
+		<Footer/>
+	</section>
+</div>
 

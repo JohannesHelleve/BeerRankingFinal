@@ -10,8 +10,8 @@
 }[];
 </script>
 
-<div class="">
-	<section class="flex flex-wrap">
+<div class="flex justify-items-end border-4">
+	<section class="flex flex-wrap justify-center">
 		{#each products as product}
 			<article>
 				<Product product={product}/>
