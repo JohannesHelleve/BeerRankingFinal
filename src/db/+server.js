@@ -1,6 +1,6 @@
-import { products } from "$db/products";
+import { products } from "./products";
 import { KASSAL_BEARER_TOKEN } from "$env/static/private";
-import eanList from "$db/ean";
+import eanList from "./ean";
 
 
 async function updateDB(){
