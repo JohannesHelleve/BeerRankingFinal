@@ -11,7 +11,7 @@ export async function updateDB(){
 }
 
 
-async function getProduct(ean: any) {
+async function getProduct(ean) {
     const response = await fetch("https://kassal.app/api/v1/products/ean/" + ean, {
         headers: {
             Authorization: `Bearer ${KASSAL_BEARER_TOKEN}`
@@ -20,7 +20,7 @@ async function getProduct(ean: any) {
     return prettifyProduct(response);
 }
 
-async function prettifyProduct(response: any){
+async function prettifyProduct(response){
     const responseJSON = await response.json();
     const stores = []
 
@@ -46,7 +46,7 @@ async function prettifyProduct(response: any){
 }
 
 
-async function updateProduct(product: any) {
+async function updateProduct(product) {
     try{
         const collection = products;
         const filter = { ean: product.ean };
