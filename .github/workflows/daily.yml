@@ -1,8 +1,6 @@
 name: Daily Product Update
 
-on:
-  schedule:
-    - cron: '0 0 * * *' # This schedule runs the job every day at midnight
+on: push
 
 jobs:
   update-db:
@@ -21,7 +19,7 @@ jobs:
         run: npm install
 
       - name: Run updateDB
-        run: node your-script.js
+        run: npm run updateDB
         env:
           KASSAL_BEARER_TOKEN: ${{ secrets.KASSAL_BEARER_TOKEN }} # Set your secret in GitHub
           MONGO_URL: ${{ secrets.MONGO_URI }} # Set your secret in GitHub
