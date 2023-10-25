@@ -3,7 +3,7 @@ import { KASSAL_BEARER_TOKEN } from "$env/static/private";
 import eanList from "./ean";
 
 
-async function updateDB(){
+export async function updateDB(){
     for (let i = 0; i < eanList.length; i++) {
         const product = await getProduct(eanList[i].ean)
         await updateProduct(product)
@@ -11,7 +11,7 @@ async function updateDB(){
 }
 
 
-async function getProduct(ean) {
+async function getProduct(ean: any) {
     const response = await fetch("https://kassal.app/api/v1/products/ean/" + ean, {
         headers: {
             Authorization: `Bearer ${KASSAL_BEARER_TOKEN}`
@@ -20,7 +20,7 @@ async function getProduct(ean) {
     return prettifyProduct(response);
 }
 
-async function prettifyProduct(response){
+async function prettifyProduct(response: any){
     const responseJSON = await response.json();
     const stores = []
 
@@ -28,7 +28,7 @@ async function prettifyProduct(response){
         if (store.store == null || store.current_price == null){
             continue
         }
-        
+
         stores.push({
             storeName : store.store.name,
             storePrice : store.current_price.price,
@@ -46,9 +46,9 @@ async function prettifyProduct(response){
 }
 
 
-async function updateProduct(product) {
+async function updateProduct(product: any) {
     try{
-        const collection = products; 
+        const collection = products;
         const filter = { ean: product.ean };
         await collection.findOneAndReplace(filter, product, { upsert: true });
         return {
@@ -62,9 +62,3 @@ async function updateProduct(product) {
         }
     }
 }
-
-async function run(){
-    await updateDB()
-}
-
-run()
