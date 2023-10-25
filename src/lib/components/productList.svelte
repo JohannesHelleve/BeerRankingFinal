@@ -10,13 +10,15 @@
 }[];
 </script>
 
-<div class="flex justify-items-end border-4">
-	<section class="flex flex-wrap justify-center">
-		{#each products as product}
-			<article>
-				<Product product={product}/>
-			</article>
-		{/each}	
-	</section>
+<div class="flex ">
+	<div class="">
+		<section class="flex justify-between flex-wrap self-stretch">
+			{#each products as product}
+				<article class="mb-5">
+					<Product product={product}/>
+				</article>
+			{/each}	
+		</section>
+	</div>
 </div>
 

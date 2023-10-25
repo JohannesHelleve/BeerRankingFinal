@@ -19,7 +19,7 @@ jobs:
         run: npm install
 
       - name: Run updateDB
-        run: node ./src/db/+server.ts
+        run: node +server.ts
         env:
           KASSAL_BEARER_TOKEN: ${{ secrets.KASSAL_BEARER_TOKEN }} # Set your secret in GitHub
           MONGO_URL: ${{ secrets.MONGO_URI }} # Set your secret in GitHub
