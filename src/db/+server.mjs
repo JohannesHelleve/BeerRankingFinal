@@ -1,4 +1,4 @@
-import { products } from "./products";
+import { products } from "./products.ts";
 import { KASSAL_BEARER_TOKEN } from "$env/static/private";
 import eanList from "./ean";
 
