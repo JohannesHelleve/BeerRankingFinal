@@ -61,3 +61,5 @@ async function updateProduct(product) {
         }
     }
 }
+
+await updateDB();
