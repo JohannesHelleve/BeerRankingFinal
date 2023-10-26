@@ -26,6 +26,10 @@ const eanList = [
     {
       name: "Smirnoff Ice Original 275ml flaske",
       ean: "5410316983693"
+    },
+    {
+      name: "Hansa Mango Ipa 0,5lx6 boks",
+      ean: "7030019535692"
     }
   ]
 
