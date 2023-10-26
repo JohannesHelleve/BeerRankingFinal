@@ -1,4 +1,4 @@
-import { products } from "./products.ts";
+import { products } from "./products.js";
 import eanList from "./ean.js";
 
 
