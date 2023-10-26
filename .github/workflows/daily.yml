@@ -1,26 +1,26 @@
-name: Update Database Workflow
+name: Daily Product Update
 
-on:
-  push:
-    branches:
-      - main  # Adjust this to the branch you want to trigger the workflow on
+on: push
 
 jobs:
   update-db:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: 18  # You can adjust the Node.js version
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run server.js
-      run: node server.js
+      - name: Run updateDB
+        run: node src/db/server.js
+        env:
+          KASSAL_BEARER_TOKEN: ${{ secrets.KASSAL_BEARER_TOKEN }} # Set your secret in GitHub
+          MONGO_URL: ${{ secrets.MONGO_URI }} # Set your secret in GitHub
 
