@@ -1,5 +1,5 @@
 import { products } from "./products.ts";
-import eanList from "./ean.ts";
+import eanList from "./ean.js";
 
 
 export async function updateDB(){
