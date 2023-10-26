@@ -13,7 +13,7 @@ export async function updateDB(){
 async function getProduct(ean) {
     const response = await fetch("https://kassal.app/api/v1/products/ean/" + ean, {
         headers: {
-            Authorization: `Bearer ${KASSAL_BEARER_TOKEN}`
+            Authorization: `Bearer ${process.env.KASSAL_BEARER_TOKEN}`
         }
     })
     return prettifyProduct(response);
