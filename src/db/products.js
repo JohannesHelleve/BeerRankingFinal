@@ -1,3 +1,3 @@
-import db from '$db/mongo'
+import db from './mongo'
 
 export const products = db.collection('kjøh')
