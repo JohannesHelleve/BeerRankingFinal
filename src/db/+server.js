@@ -1,4 +1,3 @@
-import eanList from "./ean";
 
 
 export async function updateDB(){
