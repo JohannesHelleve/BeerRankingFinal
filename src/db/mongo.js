@@ -1,6 +1,6 @@
 import { MongoClient } from "mongodb";
 
-const client = new MongoClient({secrets.MONGO_URL});
+const client = new MongoClient(process.env.MONGO_URI);
 
 export function start_mongo () {
     console.log("Starting mongo");
