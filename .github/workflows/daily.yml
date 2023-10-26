@@ -22,5 +22,5 @@ jobs:
         run: node src/db/+server.mjs
         env:
           KASSAL_BEARER_TOKEN: ${{ secrets.KASSAL_BEARER_TOKEN }} # Set your secret in GitHub
-          MONGO_URL: ${{ secrets.MONGO_URI }} # Set your secret in GitHub
+          MONGO_URL: ${{ secrets.MONGO_URL }} # Set your secret in GitHub
 
