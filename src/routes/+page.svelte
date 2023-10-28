@@ -11,7 +11,7 @@
 	$: filteredItems = handleFileter(data.products, $search);
 </script>
 
-<div class="h-screen bg-palett-Lighblue ">
+<div class="h-screen bg-palett-Lighblue w">
 	<section class="bg-palett-Lighblue">
 		<Header/>
 		<SearchBar/>
