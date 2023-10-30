@@ -10,8 +10,8 @@
 }[];
 </script>
 
-<div class="flex ">
-	<div class="">
+<div class="flex justify-center items-center ">
+	<div class="p-5">
 		<section class="flex justify-between flex-wrap self-stretch">
 			{#each products as product}
 				<article class="mb-5">
