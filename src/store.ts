@@ -18,5 +18,7 @@ export type Products = {
         storeName: string;
         storePrice: number; // Change the type to the actual type of storePrice
     }[];
+    image: string;
+    description: string;
 }[];
 

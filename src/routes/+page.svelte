@@ -16,6 +16,7 @@
 		<Header/>
 		<SearchBar/>
 		<ProductList products={filteredItems}/>
+		<ProductList products={filteredItems}/>
 		<Footer/>
 	</section>
 </div>
