@@ -12,8 +12,8 @@
 }[];
 </script>
 
-<div class="flex justify-center items-center ">
-	<section class="p-5 flex justify-between flex-wrap items-stretch">
+<div class="flex justify-center">
+	<section class="flex flex-wrap border-4 justify-around">
 		{#each products as product}
 			<article class="mb-5">
 				<Product product={product}/>
